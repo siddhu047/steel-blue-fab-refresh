@@ -38,11 +38,11 @@ const AboutPreview = () => {
 
             {/* IndiaMART Badge */}
             <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-hero-fg/[0.06] border border-hero-fg/[0.1]">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/IndiaMART_logo.svg/200px-IndiaMART_logo.svg.png"
-                alt="IndiaMART Certified"
-                className="h-5 object-contain brightness-0 invert opacity-70"
-              />
+              <svg viewBox="0 0 120 20" className="h-4 opacity-70" fill="currentColor">
+                <text x="0" y="16" fontFamily="Arial, sans-serif" fontSize="15" fontWeight="bold" fill="hsl(var(--hero-fg))">
+                  IndiaMART
+                </text>
+              </svg>
               <span className="text-xs font-medium text-hero-fg/60">Verified & Certified Supplier</span>
               <CheckCircle className="w-4 h-4 text-primary" />
             </div>
