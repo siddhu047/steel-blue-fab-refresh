@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import QuoteDialog from "./QuoteDialog";
 
 const products = [
@@ -45,42 +46,52 @@ const ProductsSection = () => {
 
   return (
     <>
-      <section id="products" className="py-20 sm:py-28" style={{ background: "var(--section-gradient)" }}>
+      <section id="products" className="py-24 sm:py-32 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">
-              What We Make
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16">
+            <div>
+              <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider mb-3">
+                What We Make
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+                Our Products
+              </h2>
+            </div>
+            <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
+              Premium steel fabrication products manufactured with precision and delivered across India.
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Our Products
-            </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {products.map((product) => (
-              <div
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+            {products.map((product, i) => (
+              <motion.div
                 key={product.name}
-                className="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
               >
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
                   <img
                     src={product.img}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-bold text-foreground mb-1.5">{product.name}</h3>
+                <div className="p-5 sm:p-6">
+                  <h3 className="font-display text-lg font-bold text-foreground mb-1.5">{product.name}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">{product.desc}</p>
                   <button
                     onClick={() => setQuoteOpen(true)}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all duration-300"
                   >
                     Get Quote <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
