@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,75 +7,75 @@
 @layer base {
   :root {
     --background: 210 20% 98%;
-    --foreground: 215 25% 15%;
+    --foreground: 220 25% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 220 25% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 220 25% 10%;
 
-    --primary: 207 44% 42%;
+    --primary: 207 55% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 207 30% 92%;
-    --secondary-foreground: 207 44% 30%;
+    --secondary: 207 20% 93%;
+    --secondary-foreground: 207 55% 30%;
 
-    --muted: 210 20% 95%;
-    --muted-foreground: 215 15% 50%;
+    --muted: 210 15% 94%;
+    --muted-foreground: 215 12% 50%;
 
-    --accent: 207 60% 48%;
+    --accent: 207 70% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 88%;
-    --ring: 207 44% 42%;
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 207 55% 40%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 207 30% 96%;
     --sidebar-foreground: 215 25% 25%;
-    --sidebar-primary: 207 44% 42%;
+    --sidebar-primary: 207 55% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 207 30% 92%;
     --sidebar-accent-foreground: 207 44% 30%;
     --sidebar-border: 210 20% 88%;
-    --sidebar-ring: 207 44% 42%;
+    --sidebar-ring: 207 55% 40%;
 
-    --hero-gradient: linear-gradient(135deg, hsl(207 44% 42%), hsl(207 60% 32%));
-    --section-gradient: linear-gradient(180deg, hsl(210 20% 98%), hsl(207 30% 96%));
+    --hero-bg: 220 25% 8%;
+    --hero-fg: 0 0% 100%;
   }
 
   .dark {
-    --background: 215 25% 10%;
+    --background: 220 25% 6%;
     --foreground: 210 20% 95%;
-    --card: 215 25% 13%;
+    --card: 220 25% 9%;
     --card-foreground: 210 20% 95%;
-    --popover: 215 25% 13%;
+    --popover: 220 25% 9%;
     --popover-foreground: 210 20% 95%;
     --primary: 207 60% 55%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 207 25% 20%;
+    --secondary: 207 25% 18%;
     --secondary-foreground: 207 30% 80%;
-    --muted: 215 20% 18%;
+    --muted: 220 20% 15%;
     --muted-foreground: 215 15% 60%;
     --accent: 207 50% 45%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 215 20% 22%;
-    --input: 215 20% 22%;
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
     --ring: 207 60% 55%;
-    --sidebar-background: 215 25% 10%;
+    --sidebar-background: 220 25% 8%;
     --sidebar-foreground: 210 20% 90%;
     --sidebar-primary: 207 60% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 20% 18%;
+    --sidebar-accent: 220 20% 15%;
     --sidebar-accent-foreground: 210 20% 90%;
-    --sidebar-border: 215 20% 22%;
+    --sidebar-border: 220 20% 18%;
     --sidebar-ring: 207 60% 55%;
   }
 }
@@ -83,11 +85,30 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
-    letter-spacing: 0.01em;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
   }
+}
+
+/* Pill button styles */
+.btn-pill {
+  @apply inline-flex items-center justify-center font-medium transition-all duration-300 rounded-full;
+}
+.btn-pill-primary {
+  @apply btn-pill bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02] active:scale-[0.98];
+}
+.btn-pill-outline {
+  @apply btn-pill border-2 border-current hover:bg-primary hover:text-primary-foreground hover:border-primary;
+}
+.btn-pill-ghost {
+  @apply btn-pill hover:bg-secondary;
+}
+
+/* Glass morphism */
+.glass {
+  @apply bg-card/80 backdrop-blur-xl border border-border/50;
 }

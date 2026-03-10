@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import QuoteDialog from "./QuoteDialog";
 
 const products = [
@@ -18,67 +18,78 @@ const Header = () => {
   const [productsOpen, setProductsOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
 
-  const scrollToProducts = (productName?: string) => {
+  const scrollTo = (id: string) => {
     setMobileOpen(false);
     setProductsOpen(false);
-    const el = document.getElementById("products");
+    const el = document.getElementById(id);
     el?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
+      <header className="sticky top-0 z-50 glass">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 shrink-0">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">S</span>
+            <a href="/" className="flex items-center gap-3 shrink-0 group">
+              <div className="relative w-10 h-10">
+                <div className="absolute inset-0 rounded-xl bg-primary rotate-6 group-hover:rotate-12 transition-transform" />
+                <div className="relative w-full h-full rounded-xl bg-foreground flex items-center justify-center">
+                  <span className="text-background font-display font-bold text-lg tracking-tight">SE</span>
+                </div>
               </div>
               <div className="hidden sm:block">
-                <p className="text-base font-bold text-foreground leading-tight">Sainath Engg</p>
-                <p className="text-xs text-muted-foreground leading-tight">Fabricators</p>
+                <p className="text-sm font-display font-bold text-foreground leading-none tracking-tight">Sainath Engg</p>
+                <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">Fabricators</p>
               </div>
-            </Link>
+            </a>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-1">
               <div
-                className="relative group"
+                className="relative"
                 onMouseEnter={() => setProductsOpen(true)}
                 onMouseLeave={() => setProductsOpen(false)}
               >
-                <button className="flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors py-2">
+                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary rounded-full hover:bg-secondary transition-all">
                   Products
-                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsOpen ? "rotate-180" : ""}`} />
                 </button>
-                {productsOpen && (
-                  <div className="absolute top-full left-0 mt-0 pt-2">
-                    <div className="bg-card rounded-xl shadow-xl border border-border py-2 min-w-[220px] animate-in fade-in slide-in-from-top-2 duration-200">
-                      {products.map((product) => (
-                        <button
-                          key={product}
-                          onClick={() => scrollToProducts(product)}
-                          className="block w-full text-left px-4 py-2.5 text-sm text-foreground hover:bg-secondary hover:text-secondary-foreground transition-colors"
-                        >
-                          {product}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <AnimatePresence>
+                  {productsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-0 pt-2"
+                    >
+                      <div className="glass rounded-2xl shadow-2xl py-2 min-w-[240px]">
+                        {products.map((product) => (
+                          <button
+                            key={product}
+                            onClick={() => scrollTo("products")}
+                            className="block w-full text-left px-5 py-2.5 text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors"
+                          >
+                            {product}
+                          </button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
-              <Link
-                to="/about"
-                className="text-sm font-semibold text-foreground hover:text-primary transition-colors"
+              <button
+                onClick={() => scrollTo("about")}
+                className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary rounded-full hover:bg-secondary transition-all"
               >
                 About Us
-              </Link>
+              </button>
 
               <button
                 onClick={() => setQuoteOpen(true)}
-                className="px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-md"
+                className="btn-pill-primary ml-2 px-6 py-2.5 text-sm"
               >
                 Get a Quote
               </button>
@@ -86,54 +97,68 @@ const Header = () => {
 
             {/* Mobile toggle */}
             <button
-              className="md:hidden p-2 text-foreground"
+              className="md:hidden p-2 text-foreground rounded-full hover:bg-secondary transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        {mobileOpen && (
-          <div className="md:hidden border-t border-border bg-card animate-in slide-in-from-top-2 duration-200">
-            <div className="container mx-auto px-4 py-4 space-y-1">
-              <button
-                onClick={() => setProductsOpen(!productsOpen)}
-                className="flex items-center justify-between w-full py-3 text-sm font-semibold text-foreground"
-              >
-                Products
-                <ChevronDown className={`w-4 h-4 transition-transform ${productsOpen ? "rotate-180" : ""}`} />
-              </button>
-              {productsOpen && (
-                <div className="pl-4 space-y-1 pb-2">
-                  {products.map((product) => (
-                    <button
-                      key={product}
-                      onClick={() => scrollToProducts(product)}
-                      className="block w-full text-left py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden overflow-hidden border-t border-border"
+            >
+              <div className="container mx-auto px-4 py-4 space-y-1">
+                <button
+                  onClick={() => setProductsOpen(!productsOpen)}
+                  className="flex items-center justify-between w-full py-3 text-sm font-medium text-foreground rounded-xl px-3 hover:bg-secondary"
+                >
+                  Products
+                  <ChevronDown className={`w-4 h-4 transition-transform ${productsOpen ? "rotate-180" : ""}`} />
+                </button>
+                <AnimatePresence>
+                  {productsOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="pl-3 space-y-0.5 overflow-hidden"
                     >
-                      {product}
-                    </button>
-                  ))}
-                </div>
-              )}
-              <Link
-                to="/about"
-                onClick={() => setMobileOpen(false)}
-                className="block py-3 text-sm font-semibold text-foreground"
-              >
-                About Us
-              </Link>
-              <button
-                onClick={() => { setQuoteOpen(true); setMobileOpen(false); }}
-                className="w-full mt-2 px-5 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded-lg"
-              >
-                Get a Quote
-              </button>
-            </div>
-          </div>
-        )}
+                      {products.map((product) => (
+                        <button
+                          key={product}
+                          onClick={() => scrollTo("products")}
+                          className="block w-full text-left py-2.5 px-3 text-sm text-muted-foreground hover:text-primary rounded-lg hover:bg-secondary transition-colors"
+                        >
+                          {product}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                <button
+                  onClick={() => scrollTo("about")}
+                  className="block w-full text-left py-3 text-sm font-medium text-foreground rounded-xl px-3 hover:bg-secondary"
+                >
+                  About Us
+                </button>
+                <button
+                  onClick={() => { setQuoteOpen(true); setMobileOpen(false); }}
+                  className="w-full mt-3 btn-pill-primary px-6 py-3 text-sm"
+                >
+                  Get a Quote
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       <QuoteDialog open={quoteOpen} onOpenChange={setQuoteOpen} />
