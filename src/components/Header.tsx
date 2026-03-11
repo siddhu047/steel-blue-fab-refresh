@@ -6,7 +6,7 @@ import QuoteDialog from "./QuoteDialog";
 
 const products = [
   { name: "Mild Steel Grating", path: "/products/mild-steel-grating" },
-  { name: "Stainless Steel Gratings", path: null },
+  { name: "Stainless Steel Gratings", path: "/products/stainless-steel-gratings" },
   { name: "MS Foundation Bolt", path: null },
   { name: "Shutter Strip", path: null },
   { name: "Pole Clamp", path: null },

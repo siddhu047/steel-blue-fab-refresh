@@ -83,8 +83,13 @@ const ProductsSection = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed mb-3">{product.desc}</p>
                 <button
                   onClick={() => {
-                    if (product.name === "Mild Steel Grating") {
-                      navigate("/products/mild-steel-grating");
+                    const routes: Record<string, string> = {
+                      "Mild Steel Grating": "/products/mild-steel-grating",
+                      "Stainless Steel Gratings": "/products/stainless-steel-gratings",
+                    };
+                    const route = routes[product.name];
+                    if (route) {
+                      navigate(route);
                     } else {
                       document.getElementById("callback")?.scrollIntoView({ behavior: "smooth" });
                     }

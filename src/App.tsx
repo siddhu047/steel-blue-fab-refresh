@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import MildSteelGrating from "./pages/MildSteelGrating.tsx";
+import StainlessSteelGratings from "./pages/StainlessSteelGratings.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/products/mild-steel-grating" element={<MildSteelGrating />} />
+          <Route path="/products/stainless-steel-gratings" element={<StainlessSteelGratings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
