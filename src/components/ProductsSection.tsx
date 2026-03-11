@@ -82,7 +82,13 @@ const ProductsSection = () => {
                 <h3 className="font-display text-base font-bold text-foreground mb-1">{product.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-3">{product.desc}</p>
                 <button
-                  onClick={() => document.getElementById("callback")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => {
+                    if (product.name === "Mild Steel Grating") {
+                      navigate("/products/mild-steel-grating");
+                    } else {
+                      document.getElementById("callback")?.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all duration-300"
                 >
                   Explore More <ArrowRight className="w-4 h-4" />
