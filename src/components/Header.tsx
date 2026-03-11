@@ -51,8 +51,8 @@ const Header = () => {
                 </div>
               </div>
               <div className="hidden sm:block">
-                <p className="text-sm font-display font-bold text-foreground leading-none tracking-tight">Sainath Engg</p>
-                <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">Fabricators</p>
+                <p className="text-base font-display font-bold text-foreground leading-none tracking-tight">Sainath Engg</p>
+                <p className="text-xs text-muted-foreground leading-tight mt-0.5">Fabricators</p>
               </div>
             </a>
 
