@@ -86,12 +86,15 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: -0.01em;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: -0.03em;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
   }
 }
 

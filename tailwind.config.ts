@@ -13,8 +13,8 @@ export default {
       },
     },
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      display: ['"Space Grotesk"', 'sans-serif'],
+      sans: ['"Source Sans 3"', 'sans-serif'],
+      display: ['Oswald', 'sans-serif'],
     },
     extend: {
       colors: {
