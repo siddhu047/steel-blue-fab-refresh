@@ -1,28 +1,40 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import QuoteDialog from "./QuoteDialog";
 
 const products = [
-  "Mild Steel Grating",
-  "Stainless Steel Gratings",
-  "MS Foundation Bolt",
-  "Shutter Strip",
-  "Pole Clamp",
-  "Mild Steel Clamp",
-  "PPE Kit",
+  { name: "Mild Steel Grating", path: "/products/mild-steel-grating" },
+  { name: "Stainless Steel Gratings", path: null },
+  { name: "MS Foundation Bolt", path: null },
+  { name: "Shutter Strip", path: null },
+  { name: "Pole Clamp", path: null },
+  { name: "Mild Steel Clamp", path: null },
+  { name: "PPE Kit", path: null },
 ];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollTo = (id: string) => {
     setMobileOpen(false);
     setProductsOpen(false);
     const el = document.getElementById(id);
     el?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleProductClick = (product: typeof products[0]) => {
+    setMobileOpen(false);
+    setProductsOpen(false);
+    if (product.path) {
+      navigate(product.path);
+    } else {
+      scrollTo("products");
+    }
   };
 
   return (
@@ -67,11 +79,11 @@ const Header = () => {
                       <div className="glass rounded-2xl shadow-2xl py-2 min-w-[240px]">
                         {products.map((product) => (
                           <button
-                            key={product}
-                            onClick={() => scrollTo("products")}
+                            key={product.name}
+                            onClick={() => handleProductClick(product)}
                             className="block w-full text-left px-5 py-2.5 text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors"
                           >
-                            {product}
+                            {product.name}
                           </button>
                         ))}
                       </div>
@@ -133,11 +145,11 @@ const Header = () => {
                     >
                       {products.map((product) => (
                         <button
-                          key={product}
-                          onClick={() => scrollTo("products")}
+                          key={product.name}
+                          onClick={() => handleProductClick(product)}
                           className="block w-full text-left py-2.5 px-3 text-sm text-muted-foreground hover:text-primary rounded-lg hover:bg-secondary transition-colors"
                         >
-                          {product}
+                          {product.name}
                         </button>
                       ))}
                     </motion.div>
