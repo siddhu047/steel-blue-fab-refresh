@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 import QuoteDialog from "./QuoteDialog";
 
 const products = [
-  "Mild Steel Grating",
-  "Stainless Steel Gratings",
-  "MS Foundation Bolt",
-  "Shutter Strip",
-  "Pole Clamp",
-  "Mild Steel Clamp",
-  "PPE Kit",
+  { name: "Mild Steel Grating", path: "/products/mild-steel-grating" },
+  { name: "Stainless Steel Gratings", path: null },
+  { name: "MS Foundation Bolt", path: null },
+  { name: "Shutter Strip", path: null },
+  { name: "Pole Clamp", path: null },
+  { name: "Mild Steel Clamp", path: null },
+  { name: "PPE Kit", path: null },
 ];
 
 const Header = () => {
