@@ -18,12 +18,23 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollTo = (id: string) => {
     setMobileOpen(false);
     setProductsOpen(false);
     const el = document.getElementById(id);
     el?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleProductClick = (product: typeof products[0]) => {
+    setMobileOpen(false);
+    setProductsOpen(false);
+    if (product.path) {
+      navigate(product.path);
+    } else {
+      scrollTo("products");
+    }
   };
 
   return (
