@@ -19,6 +19,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/products/mild-steel-grating" element={<MildSteelGrating />} />
+          <Route path="/products/stainless-steel-gratings" element={<StainlessSteelGratings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
