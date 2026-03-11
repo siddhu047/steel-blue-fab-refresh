@@ -145,11 +145,11 @@ const Header = () => {
                     >
                       {products.map((product) => (
                         <button
-                          key={product}
-                          onClick={() => scrollTo("products")}
+                          key={product.name}
+                          onClick={() => handleProductClick(product)}
                           className="block w-full text-left py-2.5 px-3 text-sm text-muted-foreground hover:text-primary rounded-lg hover:bg-secondary transition-colors"
                         >
-                          {product}
+                          {product.name}
                         </button>
                       ))}
                     </motion.div>
