@@ -96,16 +96,19 @@ const Header = () => {
                 onClick={() => scrollTo("about")}
                 className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary rounded-full hover:bg-secondary transition-all"
               >
-                About Us
+              About Us
               </button>
+            </nav>
 
+            {/* Get a Quote — right side */}
+            <div className="hidden md:flex items-center">
               <button
                 onClick={() => setQuoteOpen(true)}
-                className="btn-pill-primary ml-2 px-6 py-2.5 text-sm"
+                className="btn-pill-primary px-6 py-2.5 text-sm"
               >
                 Get a Quote
               </button>
-            </nav>
+            </div>
 
             {/* Mobile toggle */}
             <button

@@ -117,7 +117,7 @@ const ProductsSection = () => {
           className="mt-12 text-center"
         >
           <a
-            href="https://www.youtube.com/@sainathenggfabricators"
+            href="https://www.youtube.com/@Sainath_Engg_Fabricators"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-pill-outline px-8 py-3.5 text-sm font-semibold gap-3 text-foreground border-border hover:bg-destructive hover:text-destructive-foreground hover:border-destructive"
