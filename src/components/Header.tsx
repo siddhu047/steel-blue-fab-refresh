@@ -51,13 +51,13 @@ const Header = () => {
                 </div>
               </div>
               <div className="hidden sm:block">
-                <p className="text-sm font-display font-bold text-foreground leading-none tracking-tight">Sainath Engg</p>
-                <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">Fabricators</p>
+                <p className="text-base font-display font-bold text-foreground leading-none tracking-tight">Sainath Engg</p>
+                <p className="text-xs text-muted-foreground leading-tight mt-0.5">Fabricators</p>
               </div>
             </a>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-1">
+            {/* Desktop Nav — centered */}
+            <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
               <div
                 className="relative"
                 onMouseEnter={() => setProductsOpen(true)}
@@ -76,7 +76,7 @@ const Header = () => {
                       transition={{ duration: 0.15 }}
                       className="absolute top-full left-0 pt-2"
                     >
-                      <div className="glass rounded-2xl shadow-2xl py-2 min-w-[240px]">
+                      <div className="bg-card rounded-2xl shadow-2xl py-2 min-w-[240px] border border-border">
                         {products.map((product) => (
                           <button
                             key={product.name}
@@ -96,16 +96,19 @@ const Header = () => {
                 onClick={() => scrollTo("about")}
                 className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary rounded-full hover:bg-secondary transition-all"
               >
-                About Us
+              About Us
               </button>
+            </nav>
 
+            {/* Get a Quote — right side */}
+            <div className="hidden md:flex items-center">
               <button
                 onClick={() => setQuoteOpen(true)}
-                className="btn-pill-primary ml-2 px-6 py-2.5 text-sm"
+                className="btn-pill-primary px-6 py-2.5 text-sm"
               >
                 Get a Quote
               </button>
-            </nav>
+            </div>
 
             {/* Mobile toggle */}
             <button
