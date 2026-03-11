@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import QuoteDialog from "./QuoteDialog";
 
 const products = [
