@@ -15,7 +15,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <section className="relative bg-background py-6 sm:py-10 lg:py-14">
+      <section className="relative bg-background -mt-16 sm:-mt-20 pt-20 sm:pt-24 pb-6 sm:pb-10 lg:pb-14">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <motion.h1

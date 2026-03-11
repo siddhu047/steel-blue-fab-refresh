@@ -39,7 +39,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 glass">
+      <header className="sticky top-0 z-50 bg-transparent">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
@@ -56,8 +56,8 @@ const Header = () => {
               </div>
             </a>
 
-            {/* Desktop Nav — centered */}
-            <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex items-center gap-1">
               <div
                 className="relative"
                 onMouseEnter={() => setProductsOpen(true)}
@@ -98,17 +98,14 @@ const Header = () => {
               >
               About Us
               </button>
-            </nav>
 
-            {/* Get a Quote — right side */}
-            <div className="hidden md:flex items-center">
               <button
                 onClick={() => setQuoteOpen(true)}
-                className="btn-pill-primary px-6 py-2.5 text-sm"
+                className="btn-pill-primary ml-2 px-6 py-2.5 text-sm"
               >
                 Get a Quote
               </button>
-            </div>
+            </nav>
 
             {/* Mobile toggle */}
             <button
