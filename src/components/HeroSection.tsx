@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar, Users, Shield, BadgeCheck, Building } from "lucide-react";
 import gratingImg from "@/assets/grating-illustration.png";
 import QuoteDialog from "./QuoteDialog";
 
