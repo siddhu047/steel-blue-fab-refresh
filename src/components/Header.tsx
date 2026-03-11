@@ -56,8 +56,8 @@ const Header = () => {
               </div>
             </a>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-1">
+            {/* Desktop Nav — centered */}
+            <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
               <div
                 className="relative"
                 onMouseEnter={() => setProductsOpen(true)}
