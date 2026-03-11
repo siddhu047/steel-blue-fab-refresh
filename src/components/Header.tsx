@@ -7,11 +7,11 @@ import QuoteDialog from "./QuoteDialog";
 const products = [
   { name: "Mild Steel Grating", path: "/products/mild-steel-grating" },
   { name: "Stainless Steel Gratings", path: "/products/stainless-steel-gratings" },
-  { name: "MS Foundation Bolt", path: null },
-  { name: "Shutter Strip", path: null },
-  { name: "Pole Clamp", path: null },
-  { name: "Mild Steel Clamp", path: null },
-  { name: "PPE Kit", path: null },
+  { name: "MS Foundation Bolt", path: "/products/ms-foundation-bolt" },
+  { name: "Shutter Strip", path: "/products/shutter-strip" },
+  { name: "Pole Clamp", path: "/products/pole-clamp" },
+  { name: "Mild Steel Clamp", path: "/products/mild-steel-clamp" },
+  { name: "PPE Kit", path: "/products/ppe-kit" },
 ];
 
 const Header = () => {

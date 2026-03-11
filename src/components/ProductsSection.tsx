@@ -86,6 +86,11 @@ const ProductsSection = () => {
                     const routes: Record<string, string> = {
                       "Mild Steel Grating": "/products/mild-steel-grating",
                       "Stainless Steel Gratings": "/products/stainless-steel-gratings",
+                      "MS Foundation Bolt": "/products/ms-foundation-bolt",
+                      "Shutter Strip": "/products/shutter-strip",
+                      "Pole Clamp": "/products/pole-clamp",
+                      "Mild Steel Clamp": "/products/mild-steel-clamp",
+                      "PPE Kit": "/products/ppe-kit",
                     };
                     const route = routes[product.name];
                     if (route) {
