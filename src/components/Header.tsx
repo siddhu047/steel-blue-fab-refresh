@@ -79,11 +79,11 @@ const Header = () => {
                       <div className="glass rounded-2xl shadow-2xl py-2 min-w-[240px]">
                         {products.map((product) => (
                           <button
-                            key={product}
-                            onClick={() => scrollTo("products")}
+                            key={product.name}
+                            onClick={() => handleProductClick(product)}
                             className="block w-full text-left px-5 py-2.5 text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors"
                           >
-                            {product}
+                            {product.name}
                           </button>
                         ))}
                       </div>
