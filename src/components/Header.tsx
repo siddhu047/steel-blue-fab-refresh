@@ -98,17 +98,14 @@ const Header = () => {
               >
               About Us
               </button>
-            </nav>
 
-            {/* Get a Quote — right side */}
-            <div className="hidden md:flex items-center">
               <button
                 onClick={() => setQuoteOpen(true)}
-                className="btn-pill-primary px-6 py-2.5 text-sm"
+                className="btn-pill-primary ml-2 px-6 py-2.5 text-sm"
               >
                 Get a Quote
               </button>
-            </div>
+            </nav>
 
             {/* Mobile toggle */}
             <button
