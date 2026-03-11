@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar, Users, Shield, BadgeCheck, Building } from "lucide-react";
 import gratingImg from "@/assets/grating-illustration.png";
 import QuoteDialog from "./QuoteDialog";
 
@@ -103,6 +103,30 @@ const HeroSection = () => {
               </div>
             </motion.div>
           </div>
+
+          {/* Trust bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+            className="mt-5 rounded-2xl bg-card border border-border shadow-sm px-6 py-4 flex flex-wrap items-center justify-between gap-4"
+          >
+            {[
+              { icon: Calendar, label: "Established", value: "1990" },
+              { icon: Users, label: "Team Size", value: "11–25 People" },
+              { icon: Shield, label: "GST Verified", value: "36AJCPK4660M2ZX" },
+              { icon: Building, label: "Legal Status", value: "Proprietorship" },
+              { icon: BadgeCheck, label: "IndiaMART", value: "Verified Supplier" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-3">
+                <item.icon className="w-4 h-4 text-primary shrink-0" />
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground leading-none">{item.label}</p>
+                  <p className="text-sm font-semibold text-foreground leading-tight mt-0.5">{item.value}</p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
