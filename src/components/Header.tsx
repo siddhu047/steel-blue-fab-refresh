@@ -76,7 +76,7 @@ const Header = () => {
                       transition={{ duration: 0.15 }}
                       className="absolute top-full left-0 pt-2"
                     >
-                      <div className="glass rounded-2xl shadow-2xl py-2 min-w-[240px]">
+                      <div className="bg-card rounded-2xl shadow-2xl py-2 min-w-[240px] border border-border">
                         {products.map((product) => (
                           <button
                             key={product.name}
