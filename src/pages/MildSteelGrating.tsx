@@ -118,8 +118,8 @@ const MildSteelGrating = () => {
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
               Mild Steel Gratings
             </h1>
-            <p className="text-muted-foreground mt-3 max-w-xl text-sm leading-relaxed">
-              Browse our complete range of mild steel gratings — engineered for durability and precision across industrial applications.
+            <p className="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed">
+              Our Mild Steel Grating is a durable and versatile solution for a variety of industrial and commercial applications. Made from high-quality mild steel, it offers excellent strength and load-bearing capacity while being corrosion-resistant. Ideal for use in walkways, platforms, drains, and ventilation systems, this grating provides safety, stability, and reliability. Available in custom sizes and configurations, our Mild Steel Grating is easy to install and maintain, ensuring long-lasting performance in demanding environments. Trust our product for superior quality and cost-effective solutions that meet your specific needs. Order now for exceptional performance and value.
             </p>
           </div>
 
