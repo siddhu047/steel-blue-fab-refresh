@@ -63,9 +63,11 @@ const MSFoundationBolt = () => {
                       <span key={spec} className="px-2 py-0.5 rounded-full bg-secondary text-[11px] text-muted-foreground">{spec}</span>
                     ))}
                   </div>
-                  <button onClick={() => setQuoteOpen(true)} className="w-full btn-pill-primary px-5 py-2.5 text-sm gap-2 justify-center">
-                    Get Best Quote <ArrowRight className="w-4 h-4" />
-                  </button>
+                  <div className="mt-auto">
+                    <button onClick={() => setQuoteOpen(true)} className="w-full btn-pill-primary px-5 py-2.5 text-sm gap-2 justify-center">
+                      Get Best Quote <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}

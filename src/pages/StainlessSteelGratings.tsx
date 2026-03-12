@@ -97,7 +97,7 @@ const StainlessSteelGratings = () => {
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
                   <img src={product.img} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                 </div>
-                <div className="p-5 flex flex-col h-auto">
+                <div className="p-5 flex flex-col flex-1">
                   <h3 className="font-display text-base font-bold text-foreground mb-2">{product.name}</h3>
                   <div className="flex flex-wrap items-center gap-2 mb-3">
                     <div className="inline-flex items-baseline gap-1 px-3 py-1.5 rounded-full bg-primary/10">
