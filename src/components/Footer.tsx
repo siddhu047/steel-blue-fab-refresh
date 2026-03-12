@@ -1,5 +1,6 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Copy } from "lucide-react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 const footerProducts = [
   { name: "Mild Steel Grating", path: "/products/mild-steel-grating" },
@@ -8,6 +9,11 @@ const footerProducts = [
   { name: "Shutter Strip", path: "/products/shutter-strip" },
   { name: "Pole & MS Clamps", path: "/products/pole-clamp" },
 ];
+
+const copyToClipboard = (text: string) => {
+  navigator.clipboard.writeText(text);
+  toast.success("Copied to clipboard!");
+};
 
 const Footer = () => {
   return (
@@ -52,10 +58,18 @@ const Footer = () => {
             <h4 className="text-xs font-semibold uppercase tracking-wider text-hero-fg/30 mb-4">Contact</h4>
             <ul className="space-y-3 text-sm text-hero-fg/50">
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 shrink-0 text-primary" /> +91-7942542612
+                <Phone className="w-4 h-4 shrink-0 text-primary" />
+                <span>+91-7942542612</span>
+                <button onClick={() => copyToClipboard("+91-7942542612")} className="p-1 rounded hover:bg-hero-fg/10 transition-colors" title="Copy">
+                  <Copy className="w-3 h-3 text-hero-fg/30 hover:text-hero-fg/60" />
+                </button>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 shrink-0 text-primary" /> info@sainathengg.com
+                <Mail className="w-4 h-4 shrink-0 text-primary" />
+                <span>info@sainathengg.com</span>
+                <button onClick={() => copyToClipboard("info@sainathengg.com")} className="p-1 rounded hover:bg-hero-fg/10 transition-colors" title="Copy">
+                  <Copy className="w-3 h-3 text-hero-fg/30 hover:text-hero-fg/60" />
+                </button>
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-primary" /> Hyderabad, Telangana
@@ -67,13 +81,9 @@ const Footer = () => {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-hero-fg/30 mb-4">Certifications</h4>
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-hero-fg/[0.04] border border-hero-fg/[0.08] text-xs text-hero-fg/50">
-                <svg viewBox="0 0 100 30" className="h-4 w-auto" fill="none">
-                  <text x="0" y="22" fontFamily="Arial, sans-serif" fontSize="14" fontWeight="bold" fill="currentColor" opacity="0.6">
-                    IndiaMART
-                  </text>
-                </svg>
-                <span className="px-1.5 py-0.5 rounded bg-hero-fg/10 text-[10px] font-semibold text-hero-fg/60">Verified</span>
+              <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-hero-fg/[0.04] border border-hero-fg/[0.08]">
+                <span className="text-sm font-bold text-hero-fg/60 tracking-tight">IndiaMART</span>
+                <span className="px-2 py-0.5 rounded bg-hero-fg/10 text-xs font-semibold text-hero-fg/60">Verified</span>
               </div>
               <p className="text-xs text-hero-fg/30">GST: 36AJCPK4660M2ZX</p>
             </div>

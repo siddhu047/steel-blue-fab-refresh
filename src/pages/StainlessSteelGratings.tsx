@@ -97,26 +97,28 @@ const StainlessSteelGratings = () => {
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
                   <img src={product.img} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                 </div>
-                <div className="p-5">
+                <div className="p-5 flex flex-col h-auto">
                   <h3 className="font-display text-base font-bold text-foreground mb-2">{product.name}</h3>
-                  <div className="inline-flex items-baseline gap-1 px-3 py-1.5 rounded-full bg-primary/10 mb-3">
-                    <span className="text-sm font-bold text-primary">Approx. {product.price}</span>
-                    <span className="text-xs text-primary/70">/ {product.unit}</span>
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <div className="inline-flex items-baseline gap-1 px-3 py-1.5 rounded-full bg-primary/10">
+                      <span className="text-sm font-bold text-primary">Approx. {product.price}</span>
+                      <span className="text-xs text-primary/70">/ {product.unit}</span>
+                    </div>
+                    {product.delivery && (
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-green-50 text-[11px] font-medium text-green-700 border border-green-200">🚚 Delivery: {product.delivery}</span>
+                    )}
                   </div>
                   {product.minOrder && <p className="text-xs text-muted-foreground mb-2">Min. Order: {product.minOrder}</p>}
-                  <div className="flex flex-wrap gap-1.5 mb-3">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {product.specs.map((spec) => (
                       <span key={spec} className="px-2 py-0.5 rounded-full bg-secondary text-[11px] text-muted-foreground">{spec}</span>
                     ))}
                   </div>
-                  {product.delivery && (
-                    <div className="mb-4">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-green-50 text-[11px] font-medium text-green-700 border border-green-200">🚚 Delivery: {product.delivery}</span>
-                    </div>
-                  )}
-                  <button onClick={() => setQuoteOpen(true)} className="w-full btn-pill-primary px-5 py-2.5 text-sm gap-2 justify-center">
-                    Get Best Quote <ArrowRight className="w-4 h-4" />
-                  </button>
+                  <div className="mt-auto">
+                    <button onClick={() => setQuoteOpen(true)} className="w-full btn-pill-primary px-5 py-2.5 text-sm gap-2 justify-center">
+                      Get Best Quote <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}
