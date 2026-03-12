@@ -69,7 +69,7 @@ const StainlessSteelGratings = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <section className="py-12 sm:py-20">
+      <section className="pt-4 sm:pt-8 pb-12 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" /> Back to Home
@@ -89,7 +89,7 @@ const StainlessSteelGratings = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-500"
+                className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-500 flex flex-col"
               >
                 <div className="absolute top-3 left-3 z-10">
                   <span className="px-2.5 py-1 rounded-full bg-background/80 backdrop-blur-sm text-[11px] font-semibold text-muted-foreground border border-border">{product.category}</span>
@@ -97,7 +97,7 @@ const StainlessSteelGratings = () => {
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
                   <img src={product.img} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                 </div>
-                <div className="p-5 flex flex-col h-auto">
+                <div className="p-5 flex flex-col flex-1">
                   <h3 className="font-display text-base font-bold text-foreground mb-2">{product.name}</h3>
                   <div className="flex flex-wrap items-center gap-2 mb-3">
                     <div className="inline-flex items-baseline gap-1 px-3 py-1.5 rounded-full bg-primary/10">
