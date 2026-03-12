@@ -112,7 +112,7 @@ const HeroSection = () => {
             className="mt-5 rounded-2xl bg-card border border-border shadow-sm px-6 py-4 flex flex-wrap items-center justify-between gap-4"
           >
             {[
-              { icon: Calendar, label: "Established", value: "1990" },
+              { icon: Calendar, label: "Annual Turnover", value: "₹40 L – 1.5 Cr" },
               { icon: Users, label: "Team Size", value: "11–25 People" },
               { icon: Shield, label: "GST Verified", value: "36AJCPK4660M2ZX" },
               { icon: Building, label: "Legal Status", value: "Proprietorship" },

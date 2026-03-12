@@ -1,4 +1,13 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const footerProducts = [
+  { name: "Mild Steel Grating", path: "/products/mild-steel-grating" },
+  { name: "Stainless Steel Gratings", path: "/products/stainless-steel-gratings" },
+  { name: "MS Foundation Bolt", path: "/products/ms-foundation-bolt" },
+  { name: "Shutter Strip", path: "/products/shutter-strip" },
+  { name: "Pole & MS Clamps", path: "/products/pole-clamp" },
+];
 
 const Footer = () => {
   return (
@@ -28,11 +37,13 @@ const Footer = () => {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-hero-fg/30 mb-4">Products</h4>
             <ul className="space-y-2.5 text-sm text-hero-fg/50">
-              <li className="hover:text-primary transition-colors cursor-pointer">Mild Steel Grating</li>
-              <li className="hover:text-primary transition-colors cursor-pointer">Stainless Steel Gratings</li>
-              <li className="hover:text-primary transition-colors cursor-pointer">MS Foundation Bolt</li>
-              <li className="hover:text-primary transition-colors cursor-pointer">Shutter Strip</li>
-              <li className="hover:text-primary transition-colors cursor-pointer">Pole & MS Clamps</li>
+              {footerProducts.map((product) => (
+                <li key={product.name}>
+                  <Link to={product.path} className="hover:text-primary transition-colors">
+                    {product.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -57,12 +68,12 @@ const Footer = () => {
             <h4 className="text-xs font-semibold uppercase tracking-wider text-hero-fg/30 mb-4">Certifications</h4>
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-hero-fg/[0.04] border border-hero-fg/[0.08] text-xs text-hero-fg/50">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/IndiaMART_logo.svg/200px-IndiaMART_logo.svg.png"
-                  alt="IndiaMART"
-                  className="h-3.5 brightness-0 invert opacity-50"
-                />
-                Verified
+                <svg viewBox="0 0 100 30" className="h-4 w-auto" fill="none">
+                  <text x="0" y="22" fontFamily="Arial, sans-serif" fontSize="14" fontWeight="bold" fill="currentColor" opacity="0.6">
+                    IndiaMART
+                  </text>
+                </svg>
+                <span className="px-1.5 py-0.5 rounded bg-hero-fg/10 text-[10px] font-semibold text-hero-fg/60">Verified</span>
               </div>
               <p className="text-xs text-hero-fg/30">GST: 36AJCPK4660M2ZX</p>
             </div>
