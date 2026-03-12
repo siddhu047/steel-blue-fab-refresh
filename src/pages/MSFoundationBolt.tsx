@@ -32,7 +32,7 @@ const MSFoundationBolt = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <section className="py-12 sm:py-20">
+      <section className="pt-4 sm:pt-8 pb-12 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" /> Back to Home
