@@ -4,14 +4,20 @@ import { motion } from "framer-motion";
 import { toast } from "sonner";
 
 const CallbackCTA = () => {
+  const [mobile, setMobile] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = () => {
+    if (!mobile.trim()) {
+      toast.error("Please enter your mobile number.");
+      return;
+    }
     if (!message.trim()) {
       toast.error("Please tell us what you're looking for.");
       return;
     }
     toast.success("We'll get back to you shortly!");
+    setMobile("");
     setMessage("");
   };
 
