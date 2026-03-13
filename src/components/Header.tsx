@@ -104,12 +104,12 @@ const Header = () => {
                 </AnimatePresence>
               </div>
 
-              <button
-                onClick={() => scrollTo("about")}
+              <a
+                href="/#about"
                 className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary rounded-full hover:bg-secondary transition-all"
               >
               About Us
-              </button>
+              </a>
 
               <button
                 onClick={() => setQuoteOpen(true)}
