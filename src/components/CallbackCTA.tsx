@@ -47,21 +47,27 @@ const CallbackCTA = () => {
               Describe your requirement and we'll get back to you within 24 hours.
             </p>
 
-            <input
-              type="tel"
-              value={mobile}
-              onChange={(e) => setMobile(e.target.value)}
-              placeholder="Your mobile number, e.g. 9876543210"
-              className="w-full max-w-lg mx-auto block rounded-2xl bg-hero-fg/[0.06] border border-hero-fg/[0.1] text-hero-fg placeholder:text-hero-fg/30 px-5 py-3.5 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 mb-4 transition-all"
-            />
+            <div className="max-w-lg mx-auto text-left mb-4">
+              <label className="block text-hero-fg/60 text-xs font-medium mb-1.5 ml-1">Mobile Number</label>
+              <input
+                type="tel"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+                placeholder="e.g. 9876543210"
+                className="w-full rounded-2xl bg-hero-fg/[0.06] border border-hero-fg/[0.1] text-hero-fg placeholder:text-hero-fg/30 px-5 py-3.5 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+              />
+            </div>
 
-            <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="E.g. I need MS gratings for a warehouse project in Hyderabad..."
-              rows={3}
-              className="w-full max-w-lg mx-auto block rounded-2xl bg-hero-fg/[0.06] border border-hero-fg/[0.1] text-hero-fg placeholder:text-hero-fg/30 px-5 py-4 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 resize-none mb-6 transition-all"
-            />
+            <div className="max-w-lg mx-auto text-left mb-6">
+              <label className="block text-hero-fg/60 text-xs font-medium mb-1.5 ml-1">Your Requirement</label>
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="E.g. I need MS gratings for a warehouse project in Hyderabad..."
+                rows={3}
+                className="w-full rounded-2xl bg-hero-fg/[0.06] border border-hero-fg/[0.1] text-hero-fg placeholder:text-hero-fg/30 px-5 py-4 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 resize-none transition-all"
+              />
+            </div>
 
             <button
               onClick={handleSubmit}
