@@ -47,6 +47,14 @@ const CallbackCTA = () => {
               Describe your requirement and we'll get back to you within 24 hours.
             </p>
 
+            <input
+              type="tel"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+              placeholder="Your mobile number, e.g. 9876543210"
+              className="w-full max-w-lg mx-auto block rounded-2xl bg-hero-fg/[0.06] border border-hero-fg/[0.1] text-hero-fg placeholder:text-hero-fg/30 px-5 py-3.5 text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 mb-4 transition-all"
+            />
+
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
