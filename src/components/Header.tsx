@@ -167,12 +167,13 @@ const Header = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-                <button
-                  onClick={() => scrollTo("about")}
+                <a
+                  href="/#about"
                   className="block w-full text-left py-3 text-sm font-medium text-foreground rounded-xl px-3 hover:bg-secondary"
+                  onClick={() => setMobileOpen(false)}
                 >
                   About Us
-                </button>
+                </a>
                 <button
                   onClick={() => { setQuoteOpen(true); setMobileOpen(false); }}
                   className="w-full mt-3 btn-pill-primary px-6 py-3 text-sm"
