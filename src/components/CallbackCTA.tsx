@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 
@@ -59,6 +59,14 @@ const CallbackCTA = () => {
             <p className="text-hero-fg/30 text-xs mt-5">
               Typically respond within 24 hours · No commitment required
             </p>
+
+            <div className="mt-6 flex items-center justify-center gap-2 text-hero-fg/50 text-sm">
+              <Phone className="w-4 h-4" />
+              <span>Or call us directly:</span>
+              <a href="tel:+917942542612" className="text-primary font-semibold hover:underline">
+                +91-7942542612
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>
